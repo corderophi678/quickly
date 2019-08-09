@@ -14,17 +14,6 @@ impl Source {
         let buff = sourceview::Buffer::new(None);
         let view = sourceview::View::new_with_buffer(&buff);
         let container = gtk::ScrolledWindow::new(None, None);
-        match lang {
-            Lang::Css => {
-                buff.set_text("css");
-            }
-            Lang::Html => {
-                buff.set_text("css");
-            }
-            Lang::Js => {
-                buff.set_text("css");
-            }
-        }
 
         container.add(&view);
 

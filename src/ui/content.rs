@@ -24,12 +24,18 @@ impl Content {
         let container = gtk::Paned::new(gtk::Orientation::Horizontal);
 
         let source = gtk::Box::new(gtk::Orientation::Vertical, 2);
+        let css_label = gtk::Label::new("CSS");
         let css = Source::new(Lang::Css);
+        let html_label = gtk::Label::new("HTML");
         let html = Source::new(Lang::Html);
+        let js_label = gtk::Label::new("JavaScript");
         let js = Source::new(Lang::Js);
 
+        source.pack_start(&html_label, false, false, 0);
         source.pack_start(&html.container, true, true, 0);
+        source.pack_start(&css_label, false, false, 0);
         source.pack_start(&css.container, true, true, 0);
+        source.pack_start(&js_label, false, false, 0);
         source.pack_start(&js.container, true, true, 0);
 
         container.pack1(&source, true, true);
