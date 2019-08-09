@@ -1,0 +1,16 @@
+[package]
+name = "quicky"
+version = "0.1.0"
+authors = ["Dr. Rich Cordero <rich@corderophilosophy.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+gtk = { version = "^0", features = [ "v3_22" ] }
+horrorshow = "^0"
+sourceview = { version = "^0", features = [ "v3_18" ] }
+gdk = "^0"
+pulldown-cmark = "^0"
+tiny-keccak = "^1"
+webkit2gtk = "^0"
