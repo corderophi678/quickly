@@ -1,6 +1,7 @@
 use super::content::Lang;
 use gtk::*;
 
+#[derive(Clone)]
 pub struct Source {
     pub container: gtk::ScrolledWindow,
     pub view: sourceview::View,

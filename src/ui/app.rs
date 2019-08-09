@@ -37,7 +37,34 @@ impl App {
     }
 
     pub fn connect_events(self) -> ConnectedApp {
+        self.editor();
         ConnectedApp(self)
+    }
+    fn editor(&self) {
+        {
+            let content = self.content.clone();
+            self.content.css.buff.connect_changed(move |editor| {
+                if let Some(_) = super::misc::get_buffer(&editor) {
+                    content.render_preview();
+                }
+            });
+        }
+        {
+            let content = self.content.clone();
+            self.content.html.buff.connect_changed(move |editor| {
+                if let Some(_) = super::misc::get_buffer(&editor) {
+                    content.render_preview();
+                }
+            });
+        }
+        {
+            let content = self.content.clone();
+            self.content.js.buff.connect_changed(move |editor| {
+                if let Some(_) = super::misc::get_buffer(&editor) {
+                    content.render_preview();
+                }
+            });
+        }
     }
 }
 

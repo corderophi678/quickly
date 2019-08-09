@@ -1,11 +1,16 @@
+use super::super::preview::render;
+use super::misc::*;
 use super::source::Source;
 use gtk::prelude::*;
+use webkit2gtk::*;
 
+#[derive(Clone)]
 pub enum Lang {
     Css,
     Html,
     Js,
 }
+#[derive(Clone)]
 pub struct Content {
     pub container: gtk::Paned,
     pub source: gtk::Box,
@@ -45,5 +50,11 @@ impl Content {
             html,
             js,
         }
+    }
+    pub fn render_preview(&self) {
+        let css = get_buffer(&self.css.buff.clone()).unwrap_or("".to_string());
+        let html = get_buffer(&self.html.buff.clone()).unwrap_or("".to_string());
+        let js = get_buffer(&self.js.buff.clone()).unwrap_or("".to_string());
+        self.preview.load_html(&render(&html, &css, &js), None);
     }
 }
