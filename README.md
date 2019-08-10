@@ -2,4 +2,4 @@
 
 **WIP**.
 
-![Quickly GUI - Code editor and preview]("./quickly")
+![Quickly GUI - Code editor and preview]("quickly.png")
