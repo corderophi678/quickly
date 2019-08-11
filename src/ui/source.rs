@@ -43,7 +43,7 @@ fn configure_source_view(lang: &Lang, view: &sourceview::View, buff: &sourceview
         }
         Lang::Js => {
             LanguageManager::new()
-                .get_language("javascript")
+                .get_language("js")
                 .map(|js| buff.set_language(Some(&js)));
         }
     }
